@@ -223,38 +223,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.2rem;
 }
 
-/* ===== HERO VIDEO - DESKTOP BACKGROUND ===== */
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-/* Hero content stays ABOVE the video */
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* Hero overlay stays on top of video, below content */
-.hero-overlay {
-    z-index: 1;
-}
-
-/* Hide video on mobile, show gradient background */
-@media (max-width: 768px) {
-    .hero-video {
-        display: none !important;
-    }
-    .hero {
-        background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
-    }
-}
-
 /* ===== SECTIONS COMMON ===== */
 section { padding: 80px 0; }
 .section-title {
@@ -387,7 +355,7 @@ section { padding: 80px 0; }
     font-weight: 600;
 }
 
-/* ===== ABOUT SECTION - FIXED ===== */
+/* ===== ABOUT SECTION ===== */
 .about { background: #0d0d20; }
 .about-grid {
     display: grid;
@@ -427,7 +395,7 @@ section { padding: 80px 0; }
     font-size: 0.8rem;
 }
 
-/* Team placeholder - looks intentional, not broken */
+/* Team placeholder */
 .about-image {
     border-radius: 20px;
     overflow: hidden;
@@ -763,5 +731,53 @@ section { padding: 80px 0; }
     .guarantee h2 { font-size: 1.5rem; }
     .about-img-placeholder {
         height: 300px;
+    }
+}
+
+/* ======================================== */
+/* ===== EMERGENCY HERO VIDEO FIX ===== */
+/* ======================================== */
+/* This overrides everything to ensure the video stays behind content */
+.hero {
+    position: relative !important;
+    z-index: 0 !important;
+    overflow: hidden !important;
+}
+
+.hero-video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+    object-fit: cover !important;
+    z-index: 1 !important;
+}
+
+.hero-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+.hero-content {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Hide video on mobile */
+@media (max-width: 768px) {
+    .hero-video {
+        display: none !important;
+    }
+    .hero {
+        background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%) !important;
     }
 }
