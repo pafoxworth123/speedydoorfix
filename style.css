@@ -223,9 +223,26 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.2rem;
 }
 
-/* ===== HERO VIDEO - DESKTOP ONLY ===== */
+/* ===== HERO VIDEO - DESKTOP BACKGROUND ===== */
 .hero-video {
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Hero content stays ABOVE the video */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero overlay stays on top of video, below content */
+.hero-overlay {
+    z-index: 1;
 }
 
 /* Hide video on mobile, show gradient background */
