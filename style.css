@@ -923,3 +923,9 @@ details.faq-item[open] .faq-question::after { content: '\2212'; }
 .market-link { display: inline-block; margin-left: 18px; color: #ff8a63; font-weight: 700; }
 .market-link:hover { color: #ff3b3b; }
 @media (max-width: 968px) { .services-grid.two { grid-template-columns: 1fr; } }
+
+/* Still photo behind the headline on every screen; the video plays over it on wide screens */
+.hero.short {
+    background: linear-gradient(rgba(10,10,26,.6), rgba(10,10,26,.6)), url('/gdoor-poster.jpg') center / cover no-repeat, #0a0a1a !important;
+}
+.hero.short .hero-overlay { background: rgba(10,10,26,.55) !important; }
